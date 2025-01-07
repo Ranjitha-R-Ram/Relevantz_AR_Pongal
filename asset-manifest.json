@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Relevantz_AR_Pongal/static/css/main.d7f94e76.css",
+    "main.js": "/Relevantz_AR_Pongal/static/js/main.0bf964f7.js",
+    "static/js/488.0124e6f7.chunk.js": "/Relevantz_AR_Pongal/static/js/488.0124e6f7.chunk.js",
+    "index.html": "/Relevantz_AR_Pongal/index.html",
+    "main.d7f94e76.css.map": "/Relevantz_AR_Pongal/static/css/main.d7f94e76.css.map",
+    "main.0bf964f7.js.map": "/Relevantz_AR_Pongal/static/js/main.0bf964f7.js.map",
+    "488.0124e6f7.chunk.js.map": "/Relevantz_AR_Pongal/static/js/488.0124e6f7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7f94e76.css",
+    "static/js/main.0bf964f7.js"
+  ]
+}
