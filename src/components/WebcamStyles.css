@@ -1,110 +1,169 @@
 .webcam-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100%;
-    background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
-    padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+  padding: 1rem;
+}
+
+.webcam-card {
+  width: 100%;
+  max-width: 32rem;
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 1rem;
+  position: relative;
+}
+
+.gradient-bar {
+  height: 4px;
+  background: linear-gradient(to right, #f97316, #facc15, #f97316);
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #ea580c, #ca8a04);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.webcam-wrapper {
+  background: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 2px solid #fed7aa;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  max-width: fit-content;
+  transition: transform 0.2s ease;
+  position: relative;
+  aspect-ratio: 16/9;
+  width: 100%;
+  height: auto;
+}
+
+.ar-container {
+  position: fixed; /* Change to fixed so it covers the whole screen in AR mode */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Use viewport width */
+  height: 100vh; /* Use viewport height */
+  overflow: hidden;
+  border-radius: 0; /* No border radius in fullscreen */
+  z-index: 10; /* Higher z-index to ensure it's on top */
+}
+
+.ar-scene {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 2;
+}
+.ar-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* .ar-scene {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 2;
+} */
+
+.ar-overlay {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 90%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.control-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+}
+
+.start-button {
+  background: #f97316;
+  color: white;
+}
+
+.start-button:hover {
+  background: #ea580c;
+}
+
+.flip-button {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+.flip-button:hover {
+  background: #fed7aa;
+}
+
+.stop-button {
+  background: #ef4444;
+  color: white;
+}
+
+.stop-button:hover {
+  background: #dc2626;
+}
+
+.helper-text {
+  color: #4b5563;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .webcam-wrapper,
+  .ar-container {
+    aspect-ratio: 9/16; /* Switch to vertical aspect ratio on mobile */
   }
-  
-  .webcam-card {
-    width: 100%;
-    max-width: 32rem;
-    background: white;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    margin: 1rem;
-  }
-  
-  .gradient-bar {
-    height: 4px;
-    background: linear-gradient(to right, #f97316, #facc15, #f97316);
-    border-radius: 2px;
-    margin-bottom: 2rem;
-  }
-  
-  .title {
-    font-size: 2rem;
-    font-weight: 700;
-    background: linear-gradient(to right, #ea580c, #ca8a04);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .webcam-wrapper {
-    background: white;
-    padding: 1rem;
-    border-radius: 1rem;
-    border: 2px solid #fed7aa;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    margin: 0 auto;
-    max-width: fit-content;
-    transition: transform 0.2s ease;
-  }
-  
+
   .button-container {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1.5rem;
+    flex-direction: column;
   }
-  
+
   .control-button {
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border: none;
-    outline: none;
+    width: 100%;
+    margin: 0.5rem 0;
   }
-  
-  .start-button {
-    background: #f97316;
-    color: white;
-  }
-  
-  .start-button:hover {
-    background: #ea580c;
-  }
-  
-  .flip-button {
-    background: #ffedd5;
-    color: #9a3412;
-  }
-  
-  .flip-button:hover {
-    background: #fed7aa;
-  }
-  
-  .stop-button {
-    background: #ef4444;
-    color: white;
-  }
-  
-  .stop-button:hover {
-    background: #dc2626;
-  }
-  
-  .helper-text {
-    color: #4b5563;
-    font-size: 0.875rem;
-    text-align: center;
-    margin-top: 1rem;
-    padding-top: 0.5rem;
-  }
-  
-  @media (max-width: 480px) {
-    .button-container {
-      flex-direction: column;
-    }
-    
-    .control-button {
-      width: 100%;
-    }
-  }
+}
